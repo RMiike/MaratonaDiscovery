@@ -1,12 +1,9 @@
 import React from 'react';
+import Dashboard from './screen/Dashboard';
 
 function App() {
   return (
-    <div className="App">
-
-      Learn React
-      
-    </div>
+    <Dashboard />
   );
 }
 
