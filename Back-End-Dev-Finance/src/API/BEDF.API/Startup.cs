@@ -30,6 +30,16 @@ namespace BEDF.API
             services.AddScoped<DevFinanceContext>();
             services.AddScoped<ITransactionRepository, DevFinanceRepository>();
             services.AddScoped<ITransactionService, DevFinanceService>();
+
+
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("Total",
+                    builder =>
+                        builder.AllowAnyOrigin()
+                               .AllowAnyMethod()
+                               .AllowAnyHeader());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +53,7 @@ namespace BEDF.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors("Total");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\data\BEDF.Data\BEDF.Data.csproj" />
-    <ProjectReference Include="..\..\services\BEDF.Services\BEDF.Services\BEDF.Services.csproj" />
+    <ProjectReference Include="..\..\services\BEDF.Services\BEDF.Services.csproj" />
   </ItemGroup>
 
 

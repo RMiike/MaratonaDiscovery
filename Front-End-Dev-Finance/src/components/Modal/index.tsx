@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import api from "../../services/api";
+
 interface IModalButton {
   openCloseModal(): void;
   isOpen: boolean;
@@ -7,8 +9,21 @@ const Modal: React.FC<IModalButton> = ({ openCloseModal, isOpen }) => {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
-  function handleSubmit(e: any) {
+
+  async function handleSubmit(e: any) {
     e.preventDefault();
+    try {
+      let doubleAmount = parseFloat(amount);
+      let data = {
+        description,
+        amount: doubleAmount,
+        date,
+      };
+      await api.post("devfinance/transaction", data);
+      openCloseModal();
+    } catch (error) {
+      console.log(error.message);
+    }
   }
   return (
     <div className={`modal-overlay ${isOpen ? "active" : ""}`}>

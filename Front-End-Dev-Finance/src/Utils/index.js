@@ -7,6 +7,9 @@ const localeStringValues = {
 };
 
 export function toBRLString(entry) {
+  if (entry === undefined) {
+    return 0;
+  }
   return entry.toLocaleString(
     localeStringValues.locale,
     localeStringValues.styles

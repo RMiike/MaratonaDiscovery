@@ -83,6 +83,14 @@ button:hover {
 .button.cancel:hover {
   opacity: 1;
 }
+.remove {
+  color: var(--primary-color-expense);
+  opacity: 0.6;
+  cursor: pointer;
+}
+.remove:hover {
+  opacity: 1;
+}
 /*Titles*/
 h2 {
   margin-top: 3.2rem;

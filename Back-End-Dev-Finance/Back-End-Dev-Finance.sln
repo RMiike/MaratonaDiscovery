@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BEDF.Domain", "src\domain\B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{454147B5-A563-4C0C-9CDE-DE7F395013AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BEDF.Services", "src\services\BEDF.Services\BEDF.Services\BEDF.Services.csproj", "{EE853C9F-A375-4202-BF5F-957082D03379}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BEDF.Services", "src\services\BEDF.Services\BEDF.Services.csproj", "{EE853C9F-A375-4202-BF5F-957082D03379}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

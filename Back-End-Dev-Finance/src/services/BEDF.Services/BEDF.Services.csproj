@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\domain\BEDF.Domain\BEDF.Domain.csproj" />
+    <ProjectReference Include="..\..\domain\BEDF.Domain\BEDF.Domain.csproj" />
   </ItemGroup>
 
 </Project>

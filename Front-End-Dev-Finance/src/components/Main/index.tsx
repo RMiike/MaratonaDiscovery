@@ -4,6 +4,7 @@ import income from "../../assets/imgs/income.svg";
 import expense from "../../assets/imgs/expense.svg";
 import total from "../../assets/imgs/total.svg";
 import minus from "../../assets/imgs/minus.svg";
+import api from "../../services/api";
 
 interface IModalButton {
   openCloseModal(): void;
@@ -11,7 +12,7 @@ interface IModalButton {
   transactionValues: ITransactionValues;
 }
 export interface ITransaction {
-  id: number;
+  id: string;
   description: string;
   amount: number;
   date: string;
@@ -26,6 +27,13 @@ const Main: React.FC<IModalButton> = ({
   transactions,
   transactionValues,
 }) => {
+  async function handleRemove(id: string) {
+    try {
+      await api.delete(`devfinance/transaction/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <main className="container">
       <section id="balance">
@@ -54,9 +62,9 @@ const Main: React.FC<IModalButton> = ({
       </section>
       <section id="transaction">
         <h2 className="sr-only">Transações</h2>
-        <a href="#" className="button new" onClick={openCloseModal}>
+        <button className="button new" onClick={openCloseModal}>
           + Nova Transação
-        </a>
+        </button>
         <table id="data-table">
           <thead>
             <tr>
@@ -77,9 +85,16 @@ const Main: React.FC<IModalButton> = ({
                   <td className={`${isIncomeOrExpense}`}>
                     {toBRLString(transaction.amount)}
                   </td>
-                  <td className="date">{transaction.date}</td>
+                  <td className="date">{transaction.date.slice(0, 10)}</td>
                   <td>
-                    <img src={minus} alt="Remover transação" />
+                    <img
+                      className="remove"
+                      onClick={() => {
+                        handleRemove(transaction.id);
+                      }}
+                      src={minus}
+                      alt="Remover transação"
+                    />
                   </td>
                 </tr>
               );
